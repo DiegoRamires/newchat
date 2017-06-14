@@ -63,10 +63,10 @@ RSpec.describe ChannelsController, type: :controller do
     context "User is team member" do
       before(:each) do
         team = create(:team, user: @current_user)
-        @channel = create(:channel, team: team)
+        @channel = build(:channel, team: team)
 
-        @message1 = create(:message)
-        @message2 = create(:message)
+        @message1 = build(:message)
+        @message2 = build(:message)
         @channel.messages << [@message1, @message2]
 
         get :show, params: {id: @channel.id}
