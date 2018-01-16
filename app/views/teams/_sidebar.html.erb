@@ -3,9 +3,9 @@
       <div>
          <span class="team_title"><%= @team.slug %></span>
          <% if can? :destroy, @team %>
-            <a class="right team_icon remove_team" href="#">
-               <i class="material-icons" id="<%= @team.id %>">report</i>
-            </a>
+         <a class="right team_icon remove_team" href="#">
+         <i class="material-icons" id="<%= @team.id %>">report</i>
+         </a>
          <% end %>
       </div>
    </li>
@@ -23,7 +23,7 @@
                      <% @team.channels.each do |channel| %>
                      <li class="channel_<%= channel.id %>">
                         <div>
-                           <a href="#" class="open_channel">
+                           <a href="#" class="open_channel" id="<%= channel.id %>">
                            <span id="<%= channel.id %>">#<%= channel.slug %></span>
                            </a>
                            <% if can? :destroy, channel %>
@@ -62,11 +62,11 @@
                         <li class="user_<%= user.id %>">
                            <div>
                               <a href="#" id="<%= user.id %>" class="open_user">
-                              <span id="<%= user.id %>"><%= user.name %></span>
+                                <span id="<%= user.id %>"><%= user.name %></span>
                               </a>
                               <% if can? :destroy, @team %>
                               <a class="right remove_user" id="<%= user.id %>" href="#" style="color: #ccc">
-                              <i class="material-icons" id="<%= user.id %>">settings</i>
+                              <i class="material-icons" id="<%= user.id %>">clear</i>
                               </a>
                               <% end %>
                            </div>
